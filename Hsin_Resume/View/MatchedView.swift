@@ -11,9 +11,9 @@ import Firebase
 import SDWebImage
 import JGProgressHUD
 
+
+var hasHired = false
 class MatchedView: UIView {
-    
-    
     var cardUser: User?
     var cardUserUid: String!{
         didSet{
@@ -28,8 +28,8 @@ class MatchedView: UIView {
                 
                 self.descriptionLabel.text = "\(self.cardUser!.name ?? "") hired Chung-Han, please!"
                 
-//                guard let cardUrl = URL(string: user.imageUrl1 ?? "") else {return}
-//                self.cardUserImageView.sd_setImage(with: cardUrl)
+                //                guard let cardUrl = URL(string: user.imageUrl1 ?? "") else {return}
+                //                self.cardUserImageView.sd_setImage(with: cardUrl)
             }
         }
     }
@@ -88,32 +88,32 @@ class MatchedView: UIView {
     
     @objc func saveHireInfo(){
         let hud = JGProgressHUD.init(style: .dark)
-        hud.textLabel.text = "Thank you for your support!\nI am gonna send you information into Firebase!\nThen, I'll contact with you ASAP^^"
+        hud.textLabel.text = "Thank you for your support!"
+        hud.detailTextLabel.text = "I am gonna send you information into Firebase!\nThen, I'll contact with you ASAP^^"
+        hud.show(in: self)
+        
         let documentData: [String : Any] = [
             "name": cardUser?.name ?? "",
             "uid": cardUserUid,
             "email": cardUser?.email ?? ""
         ]
-        
-        
         Firestore.firestore().collection("HireMe").document(cardUserUid).getDocument { [unowned self](snapshot, error) in
+            hud.dismiss(animated: true)
             if let error = error{
                 print("Failed to fetch swipes document from firebase: \(error)")
                 return
             }
             
-            //如果swipes/uid這個document是存在的
             if snapshot?.exists == true{
-                //用update的方式，不要去覆寫原本的資料
                 Firestore.firestore().collection("HireMe").document(self.cardUserUid).updateData(documentData) { (error) in
                     if let error = error{
                         print("Failed to save swiped data in Firebase: \(error)")
                         return
                     }
                     print("Successfully updated swipe...")
+                    
                 }
             }else{
-                //否則新創一個swipes/uid document
                 Firestore.firestore().collection("HireMe").document(self.cardUserUid).setData(documentData) { (error) in
                     if let error = error{
                         print("Failed to save swiped data in Firebase: \(error)")
@@ -121,6 +121,8 @@ class MatchedView: UIView {
                     }
                 }
             }
+            hasHired = true
+            self.handleDismiss()
         }
     }
     

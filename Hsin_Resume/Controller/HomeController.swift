@@ -129,13 +129,11 @@ class HomeController: UIViewController {
     }
     
     
-    var hadMatched = false
     @objc func handleLike(){
         topCardView?.likeImageView.alpha = 1.0
         performSwipAnimation(translation: 700, angle: 15)
-        if !hadMatched{
+        if !hasHired{
             presentMatchedView()
-            hadMatched = true
         }
         
     }
@@ -150,7 +148,6 @@ class HomeController: UIViewController {
         cardsDeckView.subviews.forEach({$0.removeFromSuperview()})
         topCardView = nil
         fetchInfoFromFirebase()
-        hadMatched = false
 //        setupCardViewFromIntroductionViewModel()
     }
     
