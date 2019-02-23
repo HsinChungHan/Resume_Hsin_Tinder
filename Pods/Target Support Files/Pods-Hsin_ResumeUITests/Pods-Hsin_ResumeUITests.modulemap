@@ -1,0 +1,6 @@
+framework module Pods_Hsin_ResumeUITests {
+  umbrella header "Pods-Hsin_ResumeUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

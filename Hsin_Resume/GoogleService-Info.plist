@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>829648690138-v4sm5nl05qbhfh9f76cdc5grfbni08sg.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.829648690138-v4sm5nl05qbhfh9f76cdc5grfbni08sg</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB_62xb-bTCL6OPZwomfw8PemnVD1emjKQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>829648690138</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.Hsin.CoolApp.Hsin-Resume</string>
+	<key>PROJECT_ID</key>
+	<string>resumehsin</string>
+	<key>STORAGE_BUCKET</key>
+	<string>resumehsin.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:829648690138:ios:b72ee2a318eed189</string>
+	<key>DATABASE_URL</key>
+	<string>https://resumehsin.firebaseio.com</string>
+</dict>
+</plist>
